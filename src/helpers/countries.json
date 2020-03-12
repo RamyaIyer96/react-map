@@ -1,0 +1,62 @@
+[
+	{
+		"countryID": "BRA",
+		"countryName": "Brazil",
+		"localName": "Brasil",
+		"webCode": "BR",
+		"region": "South America",
+		"continent": "South America",
+		"latitude": "-10",
+		"longitude": "-55",
+		"surfaceArea": "8547403.00",
+		"population": "170115000"
+	},
+	{
+		"countryID": "CHN",
+		"countryName": "China",
+		"localName": "Zhongquo",
+		"webCode": "CN",
+		"region": "Eastern Asia",
+		"continent": "Asia",
+		"latitude": "35",
+		"longitude": "105",
+		"surfaceArea": "9572900.00",
+		"population": "1277558000"
+	},
+	{
+		"countryID": "FRA",
+		"countryName": "France",
+		"localName": "",
+		"webCode": "FR",
+		"region": "Western Europe",
+		"continent": "Europe",
+		"latitude": "47",
+		"longitude": "2",
+		"surfaceArea": "551500.00",
+		"population": "59225700"
+	},
+	{
+		"countryID": "IND",
+		"countryName": "India",
+		"localName": "Bharat/India",
+		"webCode": "IN",
+		"region": "Southern and Central Asia",
+		"continent": "Asia",
+		"latitude": "28.47",
+		"longitude": "77.03",
+		"surfaceArea": "3287263.00",
+		"population": "1013662000"
+	},
+	{
+		"countryID": "USA",
+		"countryName": "USA",
+		"localName": "United States",
+		"webCode": "US",
+		"region": "North America",
+		"continent": "North America",
+		"latitude": "38",
+		"longitude": "-97",
+		"surfaceArea": "9363520.00",
+		"population": "278357000"
+	}
+]
