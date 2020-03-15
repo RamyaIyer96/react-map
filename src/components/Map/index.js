@@ -74,6 +74,9 @@ export default class Map extends React.Component {
 			});
 			return data.data;
 		} catch (err) {
+			await this.setState({
+				loading:false
+			})
 			return [];
 		}
 	};
