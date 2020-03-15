@@ -34,7 +34,13 @@ export default class Map extends React.Component {
 		// const stations = await this.getByLatLong(latitude, longitude);
 		const stations = await this.getByName(countryDetails.countryName);
 		const states = getStates(countryId);
-		this.setState({ states, latitude, longitude, stations });
+		this.setState({
+			states,
+			latitude,
+			longitude,
+			stations,
+			loading: false
+		});
 	};
 
 	stateChanged = async stateId => {
@@ -44,7 +50,13 @@ export default class Map extends React.Component {
 		// const stations = await this.getByLatLong(latitude, longitude);
 		const stations = await this.getByName(stateDetails.stateName);
 		const cities = getCities(stateId);
-		this.setState({ cities, latitude, longitude, stations });
+		this.setState({
+			cities,
+			latitude,
+			longitude,
+			stations,
+			loading: false
+		});
 	};
 
 	citySelected = async cityId => {
@@ -56,7 +68,8 @@ export default class Map extends React.Component {
 		this.setState({
 			latitude,
 			longitude,
-			stations
+			stations,
+			loading: false
 		});
 	};
 
@@ -69,14 +82,8 @@ export default class Map extends React.Component {
 			formData.append("lat", lat);
 			formData.append("lng", lng);
 			let data = await axios.post(`${BASE_URL}/reverse`, formData);
-			await this.setState({
-				loading: false
-			});
 			return data.data;
 		} catch (err) {
-			await this.setState({
-				loading:false
-			})
 			return [];
 		}
 	};
@@ -87,14 +94,8 @@ export default class Map extends React.Component {
 				loading: true
 			});
 			let data = await axios.get(`${BASE_URL}/${name}`);
-			await this.setState({
-				loading: false
-			});
 			return data.data;
 		} catch (err) {
-			await this.setState({
-				loading:false
-			})
 			return [];
 		}
 	};
@@ -180,7 +181,11 @@ export default class Map extends React.Component {
 					<Divider>Map</Divider>
 					<Row>
 						<Col span={24} style={{ height: 400 }}>
-							<GoogleMap lat={latitude} lng={longitude} stations={stations} />
+							<GoogleMap
+								lat={latitude}
+								lng={longitude}
+								stations={stations}
+							/>
 						</Col>
 					</Row>
 				</Spin>
