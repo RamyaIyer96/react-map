@@ -16,7 +16,10 @@ export default class Map extends React.Component {
 			latitude: 42.317432,
 			longitude: -83.026772,
 			stations: [],
-			loading: false
+			loading: false,
+			country: undefined,
+			state: undefined,
+			city: undefined
 		};
 	}
 
@@ -36,8 +39,11 @@ export default class Map extends React.Component {
 		const states = getStates(countryId);
 		this.setState({
 			states,
+			cities: [],
 			latitude,
 			longitude,
+			state: undefined,
+			city: undefined,
 			stations,
 			loading: false
 		});
@@ -53,6 +59,8 @@ export default class Map extends React.Component {
 		this.setState({
 			cities,
 			latitude,
+			state: stateId,
+			city: undefined,
 			longitude,
 			stations,
 			loading: false
@@ -68,6 +76,7 @@ export default class Map extends React.Component {
 		this.setState({
 			latitude,
 			longitude,
+			city: cityId,
 			stations,
 			loading: false
 		});
@@ -108,7 +117,10 @@ export default class Map extends React.Component {
 			latitude,
 			longitude,
 			loading,
-			stations
+			stations,
+			country,
+			state,
+			city
 		} = this.state;
 		return (
 			<React.Fragment>
@@ -121,6 +133,7 @@ export default class Map extends React.Component {
 								placeholder="Select Country"
 								optionFilterProp="children"
 								autoComplete="off"
+								value={country}
 								onChange={this.countryChanged}
 								filterOption={(input, option) =>
 									option.children
@@ -141,6 +154,7 @@ export default class Map extends React.Component {
 								style={{ width: 200 }}
 								placeholder="Select State"
 								optionFilterProp="children"
+								value={state}
 								onChange={this.stateChanged}
 								filterOption={(input, option) =>
 									option.children
@@ -161,6 +175,7 @@ export default class Map extends React.Component {
 								placeholder="Select City"
 								optionFilterProp="children"
 								onChange={this.citySelected}
+								value={city}
 								filterOption={(input, option) =>
 									option.children
 										.toLowerCase()
